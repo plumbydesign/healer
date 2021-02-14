@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head> <title> </title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body class="signUpPage">
+
+            <div class="LoginContainer" align="center">
+                    <form class="logForm">
+                            <input type="email" id="newEmail" placeholder="email" required> <br>
+                        <input type="text" id="newUsername" placeholder="username" required>
+                        <br>
+                        <input type="password" id="newPassword" placeholder="password">
+                        <br>
+                            <button type="button" value="Signup" id="newSignup" onclick="newUser()" required>Sign Up</button>
+                    </form>
+                </div>
+                <div class="aboveThumbs"></div>
+                <div class="thumbs" >
+                <div class="row ">
+                        <div class="column">
+                            <img src="pics/thumbs.png" style="width:250px; height:250px;">
+                            <p style="margin-top:60px; text-align:center;">Check the site for daily tasks.</p>
+                        </div>    
+                        </div>
+                 
+
+
+        </body>
+    </html>
