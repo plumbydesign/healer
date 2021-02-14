@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> </title>
+    <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+</head>
+
+<body class="surveyBackground" >
+
+    <section id="contentsSurvey">
+    <form class="questionForm" id="question1" data-question="1">
+        <h2> Why are you joining?</h2>
+        <ul>
+            <li>
+                <input type="radio" id="q1" value="Relationship" onclick="surveyData(this.value)">Breakup or relationship problems </li>
+            <li>
+                <input type="radio" id="q1" value="Friend" onclick="surveyData(this.value)"> Friend breakup or problems </li>
+            <li>
+                <input type="radio" id="q1" value="Lonely" onclick="surveyData(this.value)"> Loneliness</li>
+            <li>
+                <input type="radio" id="q1" value="Death" onclick="surveyData(this.value)"> Death/Grief</li>
+            <li>
+                <input type="radio" id="q1" value="Sadness"  onclick="surveyData(this.value)"> General sadness</li>
+        </ul>
+        <button type="button" value="Submit" id="submitSurvey1" onclick="submitAnswer()">Submit</button>
+    </form>
+
+
+
+    <form class="questionForm " id="question2"  data-question="2">
+        <h2> How long have you been suffering?</h2>
+        <ul>
+            <li>
+                <input type="radio" id="q2" value="Recent" onclick="surveyData(this.value)">A few days </li>
+            <li>
+                <input type="radio" id="q2" value="Recent" onclick="surveyData(this.value)"> A month </li>
+            <li>
+                <input type="radio" id="q2" value="NotRecent" onclick="surveyData(this.value)"> A few months</li>
+            <li>
+                <input type="radio" id="q2" value="NotRecent" onclick="surveyData(this.value)"> Half a year to a year</li>
+            <li>
+                <input type="radio" id="q2" value="Old" onclick="surveyData(this.value)"> A year or more</li>
+        </ul>
+        <button type="button" value="Submit" id="submitSurvey2" onclick="submitAnswer()">Submit</button>
+    </form>
+
+
+    <form class="questionForm " id="question3"  data-question="3">
+        <h2> How do you feel toward the people or person involved?</h2>
+        <ul>
+            <li>
+                <input type="radio" id="q3" value="Angry" onclick="surveyData(this.value)">Angry </li>
+            <li>
+                <input type="radio" id="q3" value="Sad" onclick="surveyData(this.value)"> Sad </li>
+            <li>
+                <input type="radio" id="q3" value="Scared" onclick="surveyData(this.value)"> Scared of</li>
+            <li>
+                <input type="radio" id="q3" value="Scared" onclick="surveyData(this.value)">  Scared for</li>
+            <li>
+                <input type="radio" id="q3" value="Love" onclick="surveyData(this.value)"> In love</li>
+        </ul>
+        <button type="button" value="Submit" id="submitSurvey3" onclick="submitAnswer()">Submit</button>
+    </form>
+
+
+    <form  class="questionForm " id="question4"  data-question="4">
+        <h2> How many of the following activities do you like?</h2>
+        <ul>
+            <li>
+                <input type="radio" id="q4" value="a" >Playing or watching sports </li>
+            <li>
+                <input type="radio" id="q4" value="b">Watching movies </li>
+            <li>
+                <input type="radio" id="q4" value="c">Solving puzzles </li>
+            <li>
+                <input type="radio" id="q4" value="d"> Playing boardgames</li>
+            <li>
+                <input type="radio" id="q4" value="d"> Doing makeup and Hair</li>
+        </ul>
+        <button type="button" value="Submit" id="submitSurvey4" onclick="surveyFinish()">Submit</button>
+    </form>
+
+
+    <div id="results?">
+        </div>
+        </section>
+
+
+
+
+</body>
+
+</html>
