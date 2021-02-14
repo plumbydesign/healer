@@ -1,0 +1,397 @@
+//top of table just day name
+var dayLabels= document.querySelectorAll('#days th');
+
+//botton of table with pics
+var dayTasks=document.querySelectorAll('#tasks th');
+
+//are date and day of week
+var date = new Date();
+var dayAsNumber = date.getDay()-1;
+var Tomorrow=dayAsNumber+1;
+
+//task popup
+var taskPopup = document.getElementById('taskQuestion');
+
+//day pictures
+var dayPic = document.querySelectorAll('th img');
+
+//surveyand assets
+var questionArray=document.querySelectorAll('.questionForm');
+var index = 0;
+var next = index + 1;
+
+//day counts that change
+var taskComplete = 0;
+var daysActive = 1;
+
+//
+var didTodays =false;
+
+//////////////////////////////////////////////////////////////////////////// index page
+function UserInfo(user, pass) {
+    this.username = user;
+    this.password = pass;
+}
+
+var LogInfo = [{ username: 'plam10', password: 'purple' },
+{ username: 'p', password: 'p' }];
+
+//checks the login info put in by users
+//lets if is correct or alerts is wrong
+//https://www.formget.com/javascript-login-form/
+function logIn() {
+    var user = document.getElementById('username').value
+    var password = document.getElementById('password').value
+
+    for (i = 0; i < LogInfo.length; i++) {
+        if (user == LogInfo[i].username && password == LogInfo[i].password) {
+            alert('Welcome back' + user + '!');
+            window.location = "weekAtGlance.html";
+
+            return
+
+
+        }
+
+    }
+    alert('Wrong password or username!');
+}
+
+//brings users to signup page
+function signUp() {
+    window.location = "signup.html";
+}
+
+//////////////////////////////////////////////////////////////////////////// signup page
+//takes input info and creates a new userinfo
+function newUser() {
+    var newUser = document.getElementById('newUsername').value
+    var newPassword = document.getElementById('newPassword').value
+    var newEmail = document.getElementById('newEmail').value
+
+    if (newEmail.search('@') > -1) {
+
+        if (newUser.length < 3 || newPassword.length < 5) {
+            alert('Info entered it too short!');
+        } else {
+
+
+            currentUser = newUser;
+            LogInfo.push(newUser);
+            window.location = "quiz.html";
+
+        }
+
+    } else {
+        alert('Invalid Email');
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////// survey page
+
+
+function surveyData (){
+
+
+
+}
+
+//this will switch the surey question being shown 
+function submitAnswer() {
+
+    questionArray[index].style.display = 'none';
+    questionArray[next].style.display = 'block';
+    index += 1;
+    next += 1;
+}
+
+//this will bring person from survey to weekAtGlance
+function surveyFinish() {
+    window.location = "weekAtGlance.html";
+}
+
+//this is the signout button
+function signOut() {
+    window.location = "index.html";
+}
+
+//////////////////////////////////////////////////////////////////////////// week page
+
+//shows how many taks are completed
+function writeCompleted() {
+    var doneTasks = 'Task Done: '
+    var doneTasks2 = doneTasks += taskComplete;
+    document.getElementById('done').innerHTML = doneTasks2;
+
+}
+
+//days active
+function showActive() {
+
+    var act = 'Days Active: ';
+    act += daysActive;
+    document.getElementById('activeness').innerHTML = act;
+
+}
+
+
+//this will change the shows being showed 
+// to the next week
+function showNext() {
+
+    dayLabels[0].classList.add('invisible');
+    dayLabels[1].classList.add('invisible');
+    dayLabels[2].classList.add('invisible');
+    dayLabels[3].classList.add('invisible');
+    dayLabels[4].classList.add('invisible');
+    dayLabels[5].classList.add('invisible');
+    dayLabels[6].classList.add('invisible');
+
+
+    dayTasks[0].classList.add('invisible');
+    dayTasks[1].classList.add('invisible');
+    dayTasks[2].classList.add('invisible');
+    dayTasks[3].classList.add('invisible');
+    dayTasks[4].classList.add('invisible');
+    dayTasks[5].classList.add('invisible');
+    dayTasks[6].classList.add('invisible');
+    
+
+    dayLabels[7].classList.remove('invisible');
+    dayLabels[8].classList.remove('invisible');
+    dayLabels[9].classList.remove('invisible');
+    dayLabels[10].classList.remove('invisible');
+    dayLabels[11].classList.remove('invisible');
+    dayLabels[12].classList.remove('invisible');
+    dayLabels[13].classList.remove('invisible');
+
+
+  
+    dayTasks[7].classList.remove('invisible');
+    dayTasks[8].classList.remove('invisible');
+    dayTasks[9].classList.remove('invisible');
+    dayTasks[10].classList.remove('invisible');
+    dayTasks[11].classList.remove('invisible');
+    dayTasks[12].classList.remove('invisible');
+    dayTasks[13].classList.remove('invisible');
+
+
+}
+
+//this will change the shows being showed 
+//this will show current week
+function showLast() {
+
+    dayLabels[7].classList.add('invisible');
+    dayLabels[8].classList.add('invisible');
+    dayLabels[9].classList.add('invisible');
+    dayLabels[10].classList.add('invisible');
+    dayLabels[11].classList.add('invisible');
+    dayLabels[12].classList.add('invisible');
+    dayLabels[13].classList.add('invisible');
+
+
+    dayTasks[7].classList.add('invisible');
+    dayTasks[8].classList.add('invisible');
+    dayTasks[9].classList.add('invisible');
+    dayTasks[10].classList.add('invisible');
+    dayTasks[11].classList.add('invisible');
+    dayTasks[12].classList.add('invisible');
+    dayTasks[13].classList.add('invisible');
+    
+
+    dayLabels[0].classList.remove('invisible');
+    dayLabels[1].classList.remove('invisible');
+    dayLabels[2].classList.remove('invisible');
+    dayLabels[3].classList.remove('invisible');
+    dayLabels[4].classList.remove('invisible');
+    dayLabels[5].classList.remove('invisible');
+    dayLabels[6].classList.remove('invisible');
+
+
+  
+    dayTasks[0].classList.remove('invisible');
+    dayTasks[1].classList.remove('invisible');
+    dayTasks[2].classList.remove('invisible');
+    dayTasks[3].classList.remove('invisible');
+    dayTasks[4].classList.remove('invisible');
+    dayTasks[5].classList.remove('invisible');
+    dayTasks[6].classList.remove('invisible');
+
+
+
+
+
+
+}
+
+//the mood questions today
+//it makes the forum disappear!ß
+function moodSelected() {
+    setTimeout(function () {
+        var mood = document.getElementById('moodToday');
+        mood.classList.add('invisible');
+    }, 1500);
+}
+
+
+//Did task button
+var btn = document.createElement('BUTTON');
+var text = document.createTextNode('Did it?');
+btn.appendChild(text);
+btn.classList.add('taskBtn');
+btn.addEventListener("click",
+    function () {
+        taskPopup.classList.remove('invisible');
+       
+
+    }
+)
+
+//change task button
+var btn2 = document.createElement('BUTTON');
+var text2 = document.createTextNode('Change Task');
+btn2.appendChild(text2);
+btn2.classList.add('statusBtn');
+
+
+//add picture of the current day to the popup window
+function popupPic() {
+    var formNodes = document.getElementById('taskQuestion').childNodes;
+    var pic = dayPic[dayAsNumber ].cloneNode(true);
+    pic.classList.add('popPics');
+
+    taskPopup.insertBefore(pic, formNodes[0]);
+}
+
+
+
+//adjusts to show current day
+//adds the active class to days
+function whatDay() {
+    dayLabels[dayAsNumber].classList.add('active');
+    dayTasks[dayAsNumber].classList.add('active');
+
+    dayTasks[dayAsNumber].appendChild(btn);
+    dayTasks[dayAsNumber].appendChild(btn2);
+}
+
+
+function nextDay (){
+    dayLabels[dayAsNumber].classList.remove('active');
+    dayTasks[dayAsNumber].classList.remove('active');
+
+    dayTasks[dayAsNumber].removeChild(btn);
+    dayTasks[dayAsNumber].removeChild(btn2);
+
+    dayLabels[Tomorrow].classList.add('active');
+    dayTasks[Tomorrow].classList.add('active');
+
+    dayTasks[Tomorrow].appendChild(btn);
+    dayTasks[Tomorrow].appendChild(btn2);
+    btn.disabled=true;
+    btn2.disabled=true;
+}
+
+
+function checkOrX(){
+    var goodPic = document.createElement('img');
+    goodPic.src = 'pics/checkmark.png';
+    var badPic = document.createElement('img');
+    badPic.src = 'pics/x.png';
+
+    goodPic.classList.add('passFail');
+    badPic.classList.add('passFail');
+
+    if (didTodays) {
+        dayTasks[dayAsNumber].appendChild(goodPic);
+        taskComplete+=1;
+        writeCompleted();
+    } else {
+        dayTasks[dayAsNumber].appendChild(badPic);
+    }
+}
+
+
+var response = document.getElementById('response');
+
+var btn3 = document.createElement('BUTTON');
+var text = document.createTextNode('Thanks!');
+btn3.appendChild(text);
+btn3.classList.add('thanksButton');
+btn3.addEventListener("click",
+    function () {
+        response.classList.add('invisible');
+        nextDay();
+        checkOrX();
+
+
+
+    }
+)
+
+
+
+
+
+
+
+
+
+//shows different answers based on whether the task was done or not 
+function showResponse(answer) {
+    var goodPic = document.createElement('img');
+    goodPic.src = 'pics/thumbs.png';
+    var goodText = document.createElement('p');
+    goodText.innerHTML = 'Nice job. You are one step closer.';
+    //document.createTextNode('Nice job. You are one step closer');
+
+    var badPic = document.createElement('img');
+    badPic.src = 'pics/map.png';
+    var badText = document.createElement('p');
+    badText.innerHTML = 'Don\'t get too off track.One day is okay though.'
+
+    var breaks = document.createElement('br');
+
+
+    goodText.classList.add('responseGood');
+    goodPic.classList.add('picResponse');
+    badText.classList.add('responseBad');
+    badPic.classList.add('picResponse');
+
+    setTimeout(function () {
+        taskPopup.classList.add('invisible');
+    }, 1500);
+
+
+    setTimeout(function () {
+        response.classList.remove('invisible');
+    }, 1500);
+
+    if (answer == 'did') {
+        response.appendChild(goodPic);
+        response.appendChild(breaks);
+        response.appendChild(goodText);
+        response.appendChild(btn3);
+        didTodays=true;
+      
+
+
+    } else {
+        response.appendChild(badPic);
+        response.appendChild(breaks);
+        response.appendChild(badText);
+        response.appendChild(btn3);
+       
+
+    }
+
+
+
+
+}
+
+
+
+
+
