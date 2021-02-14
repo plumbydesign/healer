@@ -1,0 +1,67 @@
+<!Doctype html>
+
+<html>
+
+<head>
+    <title> </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body class="LoginPage">
+
+    <section>
+    <div class="LoginContainer" align="center">
+        <form class="logForm">
+            <input type="text" id="username" placeholder="username">
+            <br>
+            <input type="password" id="password" placeholder="password">
+            <br>
+            <button type="button" value="Login" id="login" onclick="logIn(); ">Log In</button>
+            <h5 id="question">No account?</h5s>
+                <br>
+                <button type="button" value="Signup" id="signup" onclick="signUp()">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="siteInfo">
+
+        <h2 class="subtitle" >Healing doesn't just take time.
+            <br> It takes little actions every day. </h2>
+
+        
+
+        <div class="pics">    
+        <div class="row ">
+            <div class="column">
+                <img src="pics/mobile.png" style="width:175px; height:175px;">
+                <p style="margin-top:60px; text-align:center;">Check the site for daily tasks.</p>
+            </div>
+
+            <div class="column">
+                <img src="pics/bookmark.png" style="width:175px; height:175px;">
+                <img src="pics/coffee.png" style="width:100px; height:100px; margin-left:-40px;">
+                <p style="margin-top:60px; text-align:center;">Complete them.</p>
+
+            </div>
+
+            <div class="column">
+                <img src="pics/map.png" style="width:175px; height:175px;">
+                <p style="margin-top:60px; text-align:center;" > Find happiness again.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section> 
+
+        </section>
+
+
+    
+
+</body>
+
+</html>
